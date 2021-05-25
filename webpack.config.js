@@ -1,89 +1,69 @@
 const path = require("path");
 const glob = require("glob");
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // 提取css到单独文件的插件
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin"); //压缩css插件
 
-// HTML模板文件所在的文件夹
-const htmlDir = path.join(__dirname, "public/");
-// 入口文件所在文件夹
-const srcDir = path.join(__dirname, "src/");
+// 动态生成 entry 和 html-webpack-plugin
+function getMpa() {
+  const entry = {}, htmlPlugins = [];
+  const files = glob.sync("src/page/**/index.js", { ignore: '**/common/**' });
 
-// 扫描获取入口
-function scanEntry() {
-  var entry = {};
-  glob.sync(srcDir + "/**/*.js").forEach((name) => {
-    name = path.normalize(name);
-    chunkName = name.replace(srcDir, "").replace(/\\/g, "/").replace(".js", "");
-    entry[chunkName] = name;
+  files.forEach((file) => {
+    const fileArr = file.split("/");
+    const filepath = fileArr[1];
+    const filename = fileArr[2];
+  
+    entry[filename] = path.join(__dirname, file);
+
+    htmlPlugins.push(
+      new HtmlWebpackPlugin({
+        template: path.join(__dirname, `src/${filepath}/${filename}/index.html`),
+        filename: `${filename}.html`,
+        inject: true,
+        chunks: [filename],
+        favicon: path.resolve("./src/assets/favicon.ico")
+      })
+    );
+
   });
-  return entry;
+  return { entry, htmlPlugins };
 }
-// 扫描获取所有HTML模板
-function scnanHtmlTemplate() {
-  var htmlEntry = {};
-  // 扫描目录以及子目录下所有html结尾的文件，不包含 include 文件夹
-  glob.sync(htmlDir + "/**/*.html", { ignore: "**/include/**", }).forEach((name) => {
-    name = path.normalize(name);
-    chunkName = name
-      .replace(htmlDir, "")
-      .replace(/\\/g, "/")
-      .replace(".html", "");
-    htmlEntry[chunkName] = name;
-  });
-  return htmlEntry;
-}
-// 构建HtmlWebpackPlugin对象
-function buildHtmlWebpackPlugins() {
-  var tpl = scnanHtmlTemplate();
-  var chunkFilenames = Object.keys(tpl);
-  return chunkFilenames.map((item) => {
-    var conf = {
-      filename: item + ".html",
-      template: tpl[item],
-      inject: true,
-      favicon: path.resolve("./public/favicon.ico"),
-      chunks: [item],
-    };
-    return new HtmlWebpackPlugin(conf);
-  });
-}
-// 所有入口文件
-const entry = scanEntry();
-// 插件对象
-let plugins = [
-  new CleanWebpackPlugin({
-    verbose: true,
-  }),
-  new MiniCssExtractPlugin({
-    filename: "assets/css/[name]_[chunkhash].css", // 输出目录与文件
-  }),
-  new OptimizeCssAssetsPlugin(),
-];
-// 所有 HtmlWebpackPlugin插件
-plugins = plugins.concat(buildHtmlWebpackPlugins());
+
+const mpa = getMpa();
 
 module.exports = {
-  entry,
+  devServer: {
+    inline: true,
+    contentBase:path.resolve(__dirname,'dist'),
+    compress: true,
+    hot: true,
+    host: 'localhost', // 0.0.0.0 localhost
+    port: 3000,
+    overlay: {
+      warnings: false,
+      errors: true
+    },
+  },
+  entry: {
+    main: './src/main.js',
+    ...mpa.entry
+  },
   output: {
     path: path.resolve("./dist"),
-    filename:
-      process.env.NODE_ENV === "production"
-        ? "assets/js/[name].[chunkhash].js"
-        : "assets/js/[name].js",
-    publicPath: "/",
+    filename: process.env.NODE_ENV === "prod" ? "assets/js/[name].[chunkhash].js" : "assets/js/[name].js",publicPath: "/",
   },
   resolve: {
-    extensions: ['.js', '.json','.less','.css'],
+    extensions: [".js", ".json", ".less", ".css"],
     alias: {
-      '@': path.resolve('./src')
-    }
+      "@": path.resolve("./src"),
+    },
   },
   module: {
     rules: [
       {
-        // 它会应用到普通的 `.css` 文件,
         // use数组loader的名字是有顺序的，即先由less-loader，再由css-loader处理，最后由style-loader处理
         test: /\.(sc|c|sa|le)ss$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"],
@@ -116,12 +96,22 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/
-      }
+        loader: "babel-loader",
+        exclude: /node_modules/,
+      },
     ],
   },
-  plugins,
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "assets/css/[name]_[chunkhash].css", // 输出目录与文件
+    }),
+    new CleanWebpackPlugin({
+      verbose: true,
+    }),
+    new OptimizeCssAssetsPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
+    ...mpa.htmlPlugins
+  ],
   // 提取公共模块，包括第三方库和自定义工具库等
   optimization: {
     // 找到chunk中共享的模块,取出来生成单独的chunk
@@ -151,6 +141,6 @@ module.exports = {
   stats: {
     assets: false,
     modules: false,
-    entrypoints: false
-  }
+    entrypoints: false,
+  },
 };
