@@ -6,38 +6,43 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // 提取css到单独文件的插件
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin"); //压缩css插件
 
-// 动态生成 entry 和 html-webpack-plugin
-function getMpa() {
-  const entry = {}, htmlPlugins = [];
-  const files = glob.sync("src/page/**/index.js", { ignore: '**/common/**' });
+const getEntry = () => {
+  const entry = {}; 
+  const reg = /(?<=src\\page\\).*?(?=\\\w*\.js)/;
+  const entryPaths = glob.sync('./src/page/**/*.js');
 
-  files.forEach((file) => {
-    const fileArr = file.split("/");
-    const filepath = fileArr[1];
-    const filename = fileArr[2];
-  
-    entry[filename] = path.join(__dirname, file);
-
-    htmlPlugins.push(
-      new HtmlWebpackPlugin({
-        template: path.join(__dirname, `src/${filepath}/${filename}/index.html`),
-        filename: `${filename}.html`,
-        inject: true,
-        chunks: [filename],
-        favicon: path.resolve("./src/assets/favicon.ico")
-      })
-    );
-
+  entryPaths.forEach(item => {
+    const normalPath = path.normalize(item);
+    const name = reg.exec(normalPath)[0].replace('\\', '-');
+    
+    entry[name] = path.join(__dirname, normalPath)
   });
-  return { entry, htmlPlugins };
+  
+  return entry;
 }
 
-const mpa = getMpa();
+const getHtmlPlugins = () => {
+  const reg = /(?<=src\\page\\).*?(?=\\\w*\.html)/
+  const paths = glob.sync("./src/page/*/*.html", { ignore: '*/common/*' });
+
+  return paths.map(item => {
+    const normalPath = path.normalize(item);
+    const name = reg.exec(normalPath)[0];
+    
+    return new HtmlWebpackPlugin({
+      template: path.join(__dirname, normalPath),
+      filename: `${name}.html`,
+      inject: true,
+      chunks: [name],
+      favicon: path.resolve("./src/assets/favicon.ico")
+    })
+  })
+}
 
 module.exports = {
   devServer: {
     inline: true,
-    contentBase:path.resolve(__dirname,'dist'),
+    contentBase:path.resolve(__dirname, 'dist'),
     compress: true,
     hot: true,
     host: 'localhost', // 0.0.0.0 localhost
@@ -49,11 +54,12 @@ module.exports = {
   },
   entry: {
     main: './src/main.js',
-    ...mpa.entry
+    ...getEntry(),
   },
   output: {
     path: path.resolve("./dist"),
-    filename: process.env.NODE_ENV === "prod" ? "assets/js/[name].[chunkhash].js" : "assets/js/[name].js",publicPath: "/",
+    filename: process.env.NODE_ENV === "prod" ? "assets/js/[name].[chunkhash].js" : "assets/js/[name].js",
+    publicPath: "/",
   },
   resolve: {
     extensions: [".js", ".json", ".less", ".css"],
@@ -110,7 +116,7 @@ module.exports = {
     }),
     new OptimizeCssAssetsPlugin(),
     // new webpack.HotModuleReplacementPlugin(),
-    ...mpa.htmlPlugins
+    ...getHtmlPlugins()
   ],
   // 提取公共模块，包括第三方库和自定义工具库等
   optimization: {

@@ -1,2 +1,2 @@
-
-console.log('我是main');
+import '@/assets/less/index.less'
+import '@/page/common/header/index.less'

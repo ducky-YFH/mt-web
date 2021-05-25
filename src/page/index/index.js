@@ -1,3 +1,2 @@
-import '../../assets/less/index.less'
-
+import './index.less'
 import '../../main'
