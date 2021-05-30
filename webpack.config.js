@@ -9,11 +9,11 @@ const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin"); /
 const getEntry = () => {
   const entry = {}; 
   const reg = /(?<=src\\page\\).*?(?=\\\w*\.js)/;
-  const entryPaths = glob.sync('./src/page/**/*.js');
+  const entryPaths = glob.sync('./src/page/*/*.js');
 
   entryPaths.forEach(item => {
     const normalPath = path.normalize(item);
-    const name = reg.exec(normalPath)[0].replace('\\', '-');
+    const name = reg.exec(normalPath);
     
     entry[name] = path.join(__dirname, normalPath)
   });
@@ -23,7 +23,7 @@ const getEntry = () => {
 
 const getHtmlPlugins = () => {
   const reg = /(?<=src\\page\\).*?(?=\\\w*\.html)/
-  const paths = glob.sync("./src/page/*/*.html", { ignore: '*/common/*' });
+  const paths = glob.sync("./src/page/*/*.html");
 
   return paths.map(item => {
     const normalPath = path.normalize(item);
@@ -33,7 +33,7 @@ const getHtmlPlugins = () => {
       template: path.join(__dirname, normalPath),
       filename: `${name}.html`,
       inject: true,
-      chunks: [name],
+      chunks: [name, 'main'],
       favicon: path.resolve("./src/assets/favicon.ico")
     })
   })
@@ -80,7 +80,7 @@ module.exports = {
         options: {
           limit: 10 * 1024, // 小于limit限制的图片将转为base64嵌入引用位置
           fallback: "file-loader", // 大于limit限制的将转交给指定的file-loader处理
-          // outputPath:'assets/img'// 传入file-loader将图片输出到 dist/assets/img文件夹下
+          outputPath:'assets/img',// 传入file-loader将图片输出到 dist/assets/img文件夹下
           name: "assets/img/[name].[hash:7].[ext]",
         },
       },
@@ -105,6 +105,13 @@ module.exports = {
         loader: "babel-loader",
         exclude: /node_modules/,
       },
+      {
+        test: require.resolve('jquery'),
+        use: {
+          loader: 'expose-loader',
+          options: '$'
+        }
+      }
     ],
   },
   plugins: [
@@ -115,7 +122,12 @@ module.exports = {
       verbose: true,
     }),
     new OptimizeCssAssetsPlugin(),
-    // new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery'
+    }),
     ...getHtmlPlugins()
   ],
   // 提取公共模块，包括第三方库和自定义工具库等
