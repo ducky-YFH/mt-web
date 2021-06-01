@@ -1,5 +1,6 @@
 @import "./reset.less";
 @import "./header.less";
+@import "./side-nav.less";
 
 // 左右浮动
 .fl {
@@ -24,7 +25,6 @@
   }
 }
 
-// 响应式卡片容器
 .mt-card {
   padding: 40px 0;
   background: #f1f1f1;
@@ -75,43 +75,77 @@
   }
 }
 
+.show-card {
+  img {
+    width: 100%;
+    height: 400px;
+  }
+}
+
 .mt-space {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 auto;
+  margin: 20px auto;
   width: 60%;
-  height: 400px;
-  border-left: 1px solid #d0bcb2;
-  border-right: 1px solid #d0bcb2;
-  border-bottom: 1px solid #d0bcb2;
-  &:nth-child(odd) {
-    img {
-      float: left;
-    }
-  }
-  &:nth-child(even) {
-    img {
-      float: right;
-    }
-  }
-  &-img {
-    width: 60%;
-    img {
-      height: 400px;
-    }
-  }
-  &-content {
-    width: 60%;
-    .title {
-      text-align: center;
+  background: #f7f7f7;
+  padding: 20px;
+  &-title {
+    text-align: center;
+    &__main {
+      color: #add742;
       font-size: 24px;
-      margin-bottom: 40px;
+    }
+    &__minor {
+      margin: 20px 0;
+      font-size: 26px;
+    }
+  }
+  &-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    .col {
+      width: 24%;
+      img {
+        width: 100%;
+      }
+      p {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.mt-card-a {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  margin: 50px auto;
+  &-col {
+    flex: 25%;
+    padding: 0 40px;
+    .title {
+      margin: 20px 0;
+      font-size: 16px;
+      color: #4a9433;
     }
     .content {
-      line-height: 20px;
-      padding: 0 30px;
+      font-size: 14px;
+      color: #838c95;
+      line-height: 30px;
     }
+  }
+}
+
+@media screen and (max-width: 1290px) {
+  .mt-card-col-content {
+    img {
+      width: 200px;
+      height: 200px;
+    }
+  }
+  .mt-card-a-col {
+    flex: 25%;
+    padding: 0 20px;
   }
 }
 
@@ -119,36 +153,47 @@
   .mt-card-col {
     flex: 100%;
     max-width: 80%;
+    &-content {
+      img {
+        width: 280px;
+        height: 280px;
+      }
+    }
+  }
+  .mt-card-a {
+    width: 100%;
   }
 }
 
 @media screen and (max-width: 600px) {
+  .mt-card-inner {
+    max-width: 100%;
+    padding: 0;
+  }
   .mt-card-col {
     flex: 100%;
     max-width: 100%;
+    &-content {
+      height: auto;
+    }
   }
   .mt-space {
     width: 80%;
-    // flex: 100%;
-    flex-direction: column;
-    &-img {
-      width: 100%;
-      img {
-        width: 100%;
-        float: none;
-      }
+    font-size: 12px;
+  }
+  .mt-card-a {
+    flex-flow: row wrap;
+    &-col {
+      flex: 50%;
+      padding: 0 20px;
     }
-    &-content {
-      width: 100%;
-      .title {
-        text-align: center;
-        font-size: 24px;
-        margin-bottom: 40px;
-      }
-      .content {
-        line-height: 20px;
-        padding: 0 30px;
-      }
+  }
+}
+
+@media only screen and (min-device-width: 950px) and (max-device-width: 1290px) {
+  .mt-card-col-content {
+    img {
+      width: 200px;
     }
   }
 }

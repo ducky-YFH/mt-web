@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  <%= require('html-loader!../../common/side-nav/index.html')%>
   <%= require('html-loader!../../common/header/index.html')%>
     <div class="index-container">
       <div id="slider" class="owl-carousel owl-theme">
@@ -53,46 +54,50 @@
           </div>
         </div>
       </div>
-      <div class="mt-space">
-        <div class="mt-space-img">
-          <img src="<%=require('../../assets/img/bg.jpg').default%>" alt="">
-        </div>
-        <div class="mt-space-content">
-          <p class="title">WE ARE CREATIVE</p>
-          <p class="content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra convallis auctor. Sed accumsan
-            libero quis mi commodo et suscipit enim lacinia. Morbi rutrum vulputate est sed faucibus.consectetur
-            adipiscing elit. Aliquam viverra convallis auctor. Sed accumsan libero quis mi commodo et suscipit enim
-            lacinia.
-          </p>
-        </div>
+      <div class="show-card">
+        <img src="<%=require('../../assets/img/bg2.jpg').default%>" alt="">
       </div>
       <div class="mt-space">
-        <div class="mt-space-content">
-          <p class="title">WE ARE CREATIVE</p>
-          <p class="content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra convallis auctor. Sed accumsan
-            libero quis mi commodo et suscipit enim lacinia. Morbi rutrum vulputate est sed faucibus.consectetur
-            adipiscing elit. Aliquam viverra convallis auctor. Sed accumsan libero quis mi commodo et suscipit enim
-            lacinia.
-          </p>
+        <div class="mt-space-title">
+          <p class="mt-space-title__main">奶茶的世界</p>
+          <p class="mt-space-title__minor">The world of tea with milk</p>
         </div>
-        <div class="mt-space-img">
-          <img src="<%=require('../../assets/img/bg.jpg').default%>" alt="">
+        <div class="mt-space-row">
+          <div class="col">
+            <img src="<%=require('../../assets/img/bg.jpg').default%>" alt="">
+            <p>门店信息</p>
+          </div>
+          <div class="col">
+            <img src="<%=require('../../assets/img/bg.jpg').default%>" alt="">
+            <p>寻好茶</p>
+          </div>
+          <div class="col">
+            <img src="<%=require('../../assets/img/bg.jpg').default%>" alt="">
+            <p>茶礼盒</p>
+          </div>
+          <div class="col">
+            <img src="<%=require('../../assets/img/bg.jpg').default%>" alt="">
+            <p>奶茶~</p>
+          </div>
         </div>
       </div>
-      <div class="mt-space">
-        <div class="mt-space-img">
-          <img src="<%=require('../../assets/img/bg.jpg').default%>" alt="">
+
+      <div class="mt-card-a">
+        <div class="mt-card-a-col">
+          <p class="title">研发生产</p>
+          <div class="content">拥有独立的产品研发团队，自主研发好产品。甄选全球优质原料，实现核心原料自产化，严控出品，并且拥有多项专利技术。</div>
         </div>
-        <div class="mt-space-content">
-          <p class="title">WE ARE CREATIVE</p>
-          <p class="content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra convallis auctor. Sed accumsan
-            libero quis mi commodo et suscipit enim lacinia. Morbi rutrum vulputate est sed faucibus.consectetur
-            adipiscing elit. Aliquam viverra convallis auctor. Sed accumsan libero quis mi commodo et suscipit enim
-            lacinia.
-          </p>
+        <div class="mt-card-a-col">
+          <p class="title">仓储物流</p>
+          <div class="content">在全国各地建立仓储物流中心，以郑州为中心，由点到面覆盖全国，并推行物流免运费政策，体现了强大高效的物流服务。</div>
+        </div>
+        <div class="mt-card-a-col">
+          <p class="title">研发生产</p>
+          <div class="content">拥有独立的产品研发团队，自主研发好产品。甄选全球优质原料，实现核心原料自产化，严控出品，并且拥有多项专利技术。</div>
+        </div>
+        <div class="mt-card-a-col">
+          <p class="title">运营管理</p>
+          <div class="content">全面负责蜜雪冰城品牌的运营管理，制定经营战略，并对门店的服务、品质标准等进行全方位培训，提升品牌在全国的知名度和竞争力。</div>
         </div>
       </div>
     </div>

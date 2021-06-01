@@ -1,0 +1,40 @@
+.side-nav{
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 9999;
+}
+.side-nav .nav-item{
+  position: relative;
+  width: 68px;
+  height: 68px;
+  line-height: 68px;
+  text-align: center;
+  background: #add742;
+  cursor: pointer;
+}
+
+.side-nav .nav-item:hover i{
+  color: #3d8bca;
+}
+.side-nav .nav-item i{
+  color: #838c95;
+}
+
+.side-nav .nav-item .nav-text{
+  position: absolute;
+  top: 0;
+  left: -130px;
+  width: 198px;
+  height: 68px;
+  line-height: 69px;
+  color: #fff;
+  font-weight: 900;
+  background: #1c1a1c;
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.side-nav .nav-item:hover .nav-text{
+  left: 69px;
+}
