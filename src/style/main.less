@@ -1,14 +1,15 @@
 @import "./reset.less";
 @import "./header.less";
 @import "./side-nav.less";
+@import "./footer.less";
 
-// 左右浮动
-.fl {
-  float: left;
-}
-
-.fr {
-  float: right;
+// 页面容器
+#container {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  padding-bottom: 100px;
+  box-sizing: border-box;
 }
 
 // 轮播图
@@ -136,6 +137,68 @@
   }
 }
 
+// 提示款
+.field {
+  position: relative;
+  padding: 20px 0;
+  img {
+    width: 100px;
+  }
+}
+.has-tooltip:hover + .tooltip,
+.has-tooltip:focus + .tooltip,
+.has-tooltip.hover + .tooltip {
+  opacity: 1;
+  transform: translate(-50%, -100%) scale(1) rotate(0deg);
+  pointer-events: inherit;
+}
+.tooltip {
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.75) rotate(5deg);
+  transform-origin: bottom center;
+  padding: 10px 30px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.75);
+  text-align: center;
+  color: white;
+  transition: 0.15s ease-in-out;
+  opacity: 0;
+  width: 100%;
+  max-width: 100vw;
+  pointer-events: none;
+  z-index: 5;
+}
+.tooltip.green {
+  background: rgba(46, 196, 182, 0.75);
+}
+.tooltip.green:after {
+  border-top: 5px solid rgba(46, 196, 182, 0.75);
+}
+.tooltip:hover {
+  opacity: 1;
+  transform: translate(-50%, -100%) scale(1) rotate(0deg);
+  pointer-events: inherit;
+}
+.tooltip img {
+  max-width: 100%;
+}
+.tooltip:after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-top: 5px solid rgba(0, 0, 0, 0.75);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 100%);
+}
+
 @media screen and (max-width: 1290px) {
   .mt-card-col-content {
     img {
@@ -187,6 +250,31 @@
       flex: 50%;
       padding: 0 20px;
     }
+  }
+  .footer {
+    flex-direction: column;
+    padding: 20px 0;
+    &-center {
+      .iconfont {
+        margin: 0 40px;
+      }
+    }
+  }
+  .side-nav .nav-item {
+    height: 38px;
+    line-height: 38px;
+    width: 38px;
+  }
+  .side-nav .nav-item .nav-text {
+    font-weight: 900;
+    height: 38px;
+    left: -170px;
+    line-height: 38px;
+    top: 0;
+    width: 208px;
+  }
+  .side-nav .nav-item:hover .nav-text {
+    left: 30px;
   }
 }
 

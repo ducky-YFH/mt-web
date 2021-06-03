@@ -9,18 +9,20 @@
 </head>
 
 <body>
-  <%= require('html-loader!../../common/side-nav/index.html')%>
-  <%= require('html-loader!../../common/header/index.html')%>
-    <div class="index-container">
+  <div id="container">
+    #include("../../common/header/index.html")
+    #include("../../common/side-nav/index.html")
+
+    <div class="main-container">
       <div id="slider" class="owl-carousel owl-theme">
-        <a class="item"><img src="<%=require('../../assets/img/slide1.jpg').default%>" alt=""></a>
-        <a class="item"><img src="<%=require('../../assets/img/slide2.jpg').default%>" alt=""></a>
+        <a class="item"><img src="#include('../../assets/img/slide1.jpg')" alt=""></a>
+        <a class="item"><img src="#include('../../assets/img/slide2.jpg')" alt=""></a>
       </div>
       <div class="mt-card">
         <div class="mt-card-inner">
           <h1>人气榜</h1>
           <div class="border"></div>
-
+  
           <div class="mt-card-row">
             <div class="mt-card-col">
               <div class="mt-card-col-content">
@@ -31,7 +33,7 @@
                 </p>
               </div>
             </div>
-
+  
             <div class="mt-card-col">
               <div class="mt-card-col-content">
                 <img src="https://www.mxbc.com/media/upload/product/file_27.jpg" alt="">
@@ -41,7 +43,7 @@
                 </p>
               </div>
             </div>
-
+  
             <div class="mt-card-col">
               <div class="mt-card-col-content">
                 <img src="https://www.mxbc.com/media/upload/product/file_35.jpg" alt="">
@@ -55,7 +57,7 @@
         </div>
       </div>
       <div class="show-card">
-        <img src="<%=require('../../assets/img/bg2.jpg').default%>" alt="">
+        <img src="#include('../../assets/img/bg2.jpg')" alt="">
       </div>
       <div class="mt-space">
         <div class="mt-space-title">
@@ -64,24 +66,24 @@
         </div>
         <div class="mt-space-row">
           <div class="col">
-            <img src="<%=require('../../assets/img/bg.jpg').default%>" alt="">
+            <img src="#include('../../assets/img/bg.jpg')" alt="">
             <p>门店信息</p>
           </div>
           <div class="col">
-            <img src="<%=require('../../assets/img/bg.jpg').default%>" alt="">
+            <img src="#include('../../assets/img/bg.jpg')" alt="">
             <p>寻好茶</p>
           </div>
           <div class="col">
-            <img src="<%=require('../../assets/img/bg.jpg').default%>" alt="">
+            <img src="#include('../../assets/img/bg.jpg')" alt="">
             <p>茶礼盒</p>
           </div>
           <div class="col">
-            <img src="<%=require('../../assets/img/bg.jpg').default%>" alt="">
+            <img src="#include('../../assets/img/bg.jpg')" alt="">
             <p>奶茶~</p>
           </div>
         </div>
       </div>
-
+  
       <div class="mt-card-a">
         <div class="mt-card-a-col">
           <p class="title">研发生产</p>
@@ -101,6 +103,8 @@
         </div>
       </div>
     </div>
+    #include("../../common/footer/index.html")
+  </div>
 </body>
 
 </html>

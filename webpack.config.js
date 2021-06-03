@@ -70,6 +70,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.html$/,
+        use: ["html-withimg-loader"]
+      },
+      {
         // use数组loader的名字是有顺序的，即先由less-loader，再由css-loader处理，最后由style-loader处理
         test: /\.(sc|c|sa|le)ss$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"],
@@ -81,6 +85,7 @@ module.exports = {
           limit: 10 * 1024, // 小于limit限制的图片将转为base64嵌入引用位置
           fallback: "file-loader", // 大于limit限制的将转交给指定的file-loader处理
           outputPath:'assets/img',// 传入file-loader将图片输出到 dist/assets/img文件夹下
+          esModule: false,
           name: "assets/img/[name].[hash:7].[ext]",
         },
       },

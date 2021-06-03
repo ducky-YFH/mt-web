@@ -1,0 +1,58 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8335438",
+      "name": "mail, envelope, letter, email, newsletter",
+      "font_class": "mailenvelopeletteremailnewsletter",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "8955463",
+      "name": "版权",
+      "font_class": "banquan",
+      "unicode": "e542",
+      "unicode_decimal": 58690
+    },
+    {
+      "icon_id": "10889696",
+      "name": "phone new",
+      "font_class": "phone",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "11528414",
+      "name": "抖音",
+      "font_class": "douyin",
+      "unicode": "e656",
+      "unicode_decimal": 58966
+    },
+    {
+      "icon_id": "14035903",
+      "name": "we-chat",
+      "font_class": "we-chat",
+      "unicode": "e503",
+      "unicode_decimal": 58627
+    },
+    {
+      "icon_id": "16983457",
+      "name": "position",
+      "font_class": "icon_attentionbeifen19",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "19983998",
+      "name": "微博",
+      "font_class": "unie61d-copy",
+      "unicode": "e501",
+      "unicode_decimal": 58625
+    }
+  ]
+}
