@@ -9,11 +9,11 @@ const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin"); /
 const getEntry = () => {
   const entry = {}; 
   const reg = /(?<=src\\page\\).*?(?=\\\w*\.js)/;
-  const entryPaths = glob.sync('./src/page/*/*.js');
+  const entryPaths = glob.sync('./src/page/**/*.js');
 
   entryPaths.forEach(item => {
     const normalPath = path.normalize(item);
-    const name = reg.exec(normalPath);
+    const name = reg.exec(normalPath)[0].replace('\\', '/');
     
     entry[name] = path.join(__dirname, normalPath)
   });
@@ -22,12 +22,12 @@ const getEntry = () => {
 }
 
 const getHtmlPlugins = () => {
-  const reg = /(?<=src\\page\\).*?(?=\\\w*\.html)/
-  const paths = glob.sync("./src/page/*/*.html");
+  const reg = /(?<=src\\page\\).*?(?=\\\w*\.html)/;
+  const paths = glob.sync("./src/page/**/*.html");
 
   return paths.map(item => {
     const normalPath = path.normalize(item);
-    const name = reg.exec(normalPath)[0];
+    const name = reg.exec(normalPath)[0].replace('\\', '/');
     
     return new HtmlWebpackPlugin({
       template: path.join(__dirname, normalPath),
@@ -45,7 +45,7 @@ module.exports = {
     contentBase:path.resolve(__dirname, 'dist'),
     compress: true,
     hot: true,
-    host: 'localhost', // 0.0.0.0 localhost
+    host: '0.0.0.0', // 0.0.0.0 localhost
     port: 3000,
     overlay: {
       warnings: false,

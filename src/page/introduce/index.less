@@ -1,0 +1,97 @@
+.introduce-row {
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+}
+.introduce-col {
+  margin: 5px;
+  width: 24%;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  img {
+    height: 300px;
+  }
+  &-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+    &:hover {
+      h1 {
+        transform: translateY(0px);
+      }
+      .icons {
+        transform: translateY(0);
+      }
+    }
+    h1 {
+      color: #fff;
+      text-transform: uppercase;
+      transform: translateY(20px);
+      transition: 0.4s;
+    }
+    .icons {
+      position: absolute;
+      right: 40px;
+      bottom: 40px;
+      transform: translateY(80px);
+      transition: transform 0.4s 0.05s, color 0.4s;
+      .iconfont {
+        text-decoration: none;
+        color: #333;
+        font-size: 26px;
+        margin: 0 10px;
+        vertical-align: middle;
+        &:hover {
+          color: #3498db;
+        }
+      }
+      .look {
+        font-size: 14px;
+        vertical-align: top;
+      }
+    }
+  }
+}
+
+.introduce-col-content::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  height: 0;
+  clip-path: polygon(0 100%, 100% 0, 100% 100%);
+  transition: 0.5s;
+}
+
+.introduce-col-content:hover::before {
+  height: 140px;
+}
+
+@media screen and (max-width: 1290px) {
+  .introduce-col {
+    width: 32%;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .introduce-col {
+    width: 48%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .introduce-col {
+    width: 100%;
+  }
+  #container {
+    padding-bottom: 140px;
+  }
+}

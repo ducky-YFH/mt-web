@@ -10,6 +10,7 @@
   background-color: #000000;
   color: #c6c3c2;
   font-size: 12px;
+  z-index: 999;
   &-left {
     text-align: center;
     flex: 33.3%;
@@ -30,6 +31,18 @@
     a {
       &:hover {
         color: #4a9433;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+    padding: 20px 0;
+    &-center {
+      .iconfont {
+        margin: 0 40px;
       }
     }
   }

@@ -10,7 +10,7 @@
   height: 68px;
   line-height: 68px;
   text-align: center;
-  background: #add742;
+  background: #afd918;
   cursor: pointer;
 }
 
@@ -37,4 +37,23 @@
 
 .side-nav .nav-item:hover .nav-text{
   left: 69px;
+}
+
+@media screen and (max-width: 600px) {
+  .side-nav .nav-item {
+    height: 38px;
+    line-height: 38px;
+    width: 38px;
+  }
+  .side-nav .nav-item .nav-text {
+    font-weight: 900;
+    height: 38px;
+    left: -170px;
+    line-height: 38px;
+    top: 0;
+    width: 208px;
+  }
+  .side-nav .nav-item:hover .nav-text {
+    left: 30px;
+  }
 }
