@@ -1,10 +1,10 @@
-.introduce-row {
+.product-row {
   margin: 0 auto;
   display: flex;
   justify-content: flex-start;
   flex-flow: row wrap;
 }
-.introduce-col {
+.product-col {
   margin: 5px;
   width: 24%;
   height: 300px;
@@ -59,7 +59,7 @@
   }
 }
 
-.introduce-col-content::before {
+.product-col-content::before {
   content: "";
   position: absolute;
   left: 0;
@@ -71,24 +71,24 @@
   transition: 0.5s;
 }
 
-.introduce-col-content:hover::before {
+.product-col-content:hover::before {
   height: 140px;
 }
 
 @media screen and (max-width: 1290px) {
-  .introduce-col {
+  .product-col {
     width: 32%;
   }
 }
 
 @media screen and (max-width: 960px) {
-  .introduce-col {
+  .product-col {
     width: 48%;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .introduce-col {
+  .product-col {
     width: 100%;
   }
   #container {
