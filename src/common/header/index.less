@@ -1,20 +1,28 @@
 .header {
   position: relative;
   height: 60px;
-  background: #000000;
-  padding: 0 20px;
+  background: rgba(0, 0, 0, 0.8);
+  padding-right: 20px;
   color: #fff;
   user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
-  line-height: 60px;
-  float: left;
+  background-image: url("@/assets/img/logo.png");
+  background-size: 100% 100%;
+  width: 200px;
+  height: 60px;
   text-transform: uppercase;
 }
 
+.icon-close {
+  font-size: 24px;
+}
+
 .menu {
-  float: right;
   line-height: 60px;
   a {
     color: #fff;
@@ -36,10 +44,6 @@
   display: none;
 }
 
-.show-menu-btn {
-  float: right;
-}
-
 .show-menu-btn i {
   line-height: 60px;
 }
@@ -54,6 +58,13 @@
   position: absolute;
   visibility: hidden;
   z-index: 99999;
+}
+
+
+@media screen and (max-width: 1200px) {
+  .menu a {
+    margin: 0 20px;
+  }
 }
 
 @media screen and (max-width: 800px) {

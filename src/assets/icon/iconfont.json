@@ -6,32 +6,53 @@
   "description": "",
   "glyphs": [
     {
-      "icon_id": "8335438",
-      "name": "mail, envelope, letter, email, newsletter",
-      "font_class": "mailenvelopeletteremailnewsletter",
-      "unicode": "e62c",
-      "unicode_decimal": 58924
+      "icon_id": "4529755",
+      "name": "查找/lookup",
+      "font_class": "lookup",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
     },
     {
-      "icon_id": "8955463",
-      "name": "版权",
-      "font_class": "banquan",
-      "unicode": "e542",
-      "unicode_decimal": 58690
+      "icon_id": "5634964",
+      "name": "copyright",
+      "font_class": "copyright",
+      "unicode": "f28a",
+      "unicode_decimal": 62090
     },
     {
-      "icon_id": "10889696",
-      "name": "phone new",
-      "font_class": "phone",
-      "unicode": "e602",
-      "unicode_decimal": 58882
+      "icon_id": "6987035",
+      "name": "email",
+      "font_class": "email",
+      "unicode": "e92f",
+      "unicode_decimal": 59695
     },
     {
-      "icon_id": "11528414",
-      "name": "抖音",
+      "icon_id": "7597334",
+      "name": "douyin",
       "font_class": "douyin",
-      "unicode": "e656",
-      "unicode_decimal": 58966
+      "unicode": "e654",
+      "unicode_decimal": 58964
+    },
+    {
+      "icon_id": "8714304",
+      "name": "place",
+      "font_class": "ic-place",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "10680421",
+      "name": "more read",
+      "font_class": "more1",
+      "unicode": "e50b",
+      "unicode_decimal": 58635
+    },
+    {
+      "icon_id": "12579417",
+      "name": "phone",
+      "font_class": "phone",
+      "unicode": "e757",
+      "unicode_decimal": 59223
     },
     {
       "icon_id": "14035903",
@@ -41,18 +62,18 @@
       "unicode_decimal": 58627
     },
     {
-      "icon_id": "16983457",
-      "name": "position",
-      "font_class": "icon_attentionbeifen19",
-      "unicode": "e60f",
-      "unicode_decimal": 58895
+      "icon_id": "16963297",
+      "name": "close",
+      "font_class": "close",
+      "unicode": "e502",
+      "unicode_decimal": 58626
     },
     {
-      "icon_id": "19983998",
-      "name": "微博",
-      "font_class": "unie61d-copy",
-      "unicode": "e501",
-      "unicode_decimal": 58625
+      "icon_id": "21816225",
+      "name": "webo",
+      "font_class": "webo",
+      "unicode": "e5c1",
+      "unicode_decimal": 58817
     }
   ]
 }

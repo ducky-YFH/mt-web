@@ -32,11 +32,10 @@
   &-row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    // justify-content: center;
   }
   &-col {
-    flex: 33.33%;
-    max-width: 33.33%;
+    width: 33.33%;
     box-sizing: border-box;
     padding: 15px;
     &-content {
@@ -124,10 +123,14 @@
 }
 
 @media screen and (max-width: 1290px) {
+  .index-card-inner {
+    max-width: 90%;
+  }
   .index-card-col-content {
+    height: 350px;
     img {
-      width: 200px;
-      height: 200px;
+      width: 180px;
+      height: 180px;
     }
   }
   .index-card-product-col {
@@ -138,15 +141,7 @@
 
 @media screen and (max-width: 960px) {
   .index-card-col {
-    flex: 100%;
-    max-width: 80%;
-    &-content {
-      height: auto;
-      img {
-        width: 280px;
-        height: 280px;
-      }
-    }
+    width: 50%;
   }
   .show-card {
     img {
@@ -176,14 +171,6 @@
     &-col {
       flex: 50%;
       padding: 0 20px;
-    }
-  }
-}
-
-@media only screen and (min-device-width: 950px) and (max-device-width: 1290px) {
-  .index-card-col-content {
-    img {
-      width: 200px;
     }
   }
 }

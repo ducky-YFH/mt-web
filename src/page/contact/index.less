@@ -1,0 +1,89 @@
+.content {
+  margin: 5% auto;
+  width: 60%;
+  h1 {
+    margin-bottom: 5%;
+    text-align: center;
+    font-size: 24px;
+    color: #4a9433;
+  }
+  &-main {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    &-left {
+      width: 40%;
+      margin-top: 10px;
+      .iconfont {
+        color: #4a9433;
+        margin-right: 6px;
+      }
+      > div {
+        margin-bottom: 60px;
+      }
+    }
+    &-right {
+      width: 60%;
+      .input-box {
+        display: flex;
+        margin-bottom: 10px;
+        :first-of-type {
+          margin-right: 10px;
+        }
+        input {
+          width: 100%;
+          outline-style: none;
+          border: 1px solid #ccc;
+          border-radius: 3px;
+          padding: 13px 14px;
+          font-size: 14px;
+          font-weight: 700;
+          &:focus {
+            border-color: #66afe9;
+            outline: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+              0 0 8px rgba(150, 233, 102, 0.6);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+              0 0 8px rgba(150, 233, 102, 0.6);
+          }
+        }
+      }
+      textarea {
+        box-sizing: border-box;
+        width: 100%;
+        outline-style: none;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        padding: 13px;
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .btn {
+        margin: 10px 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1220px) {
+  .content-main {
+    flex-direction: column;
+    &-left {
+      width: 100%;
+    }
+    &-right {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .content {
+    width: 90%;
+    &-main-left {
+      > div {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}

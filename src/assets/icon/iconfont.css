@@ -1,6 +1,6 @@
 @font-face {
   font-family: "iconfont"; /* Project id  */
-  src: url('iconfont.ttf?t=1622648242983') format('truetype');
+  src: url('iconfont.ttf?t=1623491419409') format('truetype');
 }
 
 .iconfont {
@@ -11,31 +11,43 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-lookup:before {
+  content: "\e60d";
+}
+
+.icon-copyright:before {
+  content: "\f28a";
+}
+
 .icon-email:before {
-  content: "\e62c";
-}
-
-.icon-banquan:before {
-  content: "\e542";
-}
-
-.icon-phone:before {
-  content: "\e602";
+  content: "\e92f";
 }
 
 .icon-douyin:before {
-  content: "\e656";
+  content: "\e654";
+}
+
+.icon-ic-place:before {
+  content: "\e609";
+}
+
+.icon-more:before {
+  content: "\e50b";
+}
+
+.icon-phone:before {
+  content: "\e757";
 }
 
 .icon-we-chat:before {
   content: "\e503";
 }
 
-.icon-place:before {
-  content: "\e60f";
+.icon-close:before {
+  content: "\e502";
 }
 
-.icon-unie61d-copy:before {
-  content: "\e501";
+.icon-webo:before {
+  content: "\e5c1";
 }
 
