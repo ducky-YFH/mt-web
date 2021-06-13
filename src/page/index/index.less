@@ -16,7 +16,9 @@
   padding: 40px 0;
   background: #f1f1f1;
   color: #434343;
-  text-align: center;
+  h1 {
+    text-align: center;
+  }
   &-inner {
     max-width: 80%;
     margin: auto;
@@ -32,18 +34,20 @@
   &-row {
     display: flex;
     flex-wrap: wrap;
-    // justify-content: center;
   }
   &-col {
     width: 33.33%;
     box-sizing: border-box;
     padding: 15px;
+    cursor: pointer;
     &-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       background: #fff;
-      height: 400px;
       padding: 30px;
       .name {
-        margin: 60px 0 20px;
+        margin: 20px;
         font-size: 20px;
         font-weight: bold;
         color: #e40055;
@@ -57,6 +61,10 @@
       p {
         line-height: 30px;
       }
+    }
+    :hover {
+      background: #e0d8d4;
+      transition: 0.5s;
     }
   }
 }
@@ -127,10 +135,9 @@
     max-width: 90%;
   }
   .index-card-col-content {
-    height: 350px;
     img {
-      width: 180px;
-      height: 180px;
+      width: 200px;
+      height: 200px;
     }
   }
   .index-card-product-col {

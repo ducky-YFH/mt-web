@@ -7,6 +7,7 @@ import '@/common/dialog/index.js'
 import "@/common/side-nav/index.less";
 import "@/common/dialog/index.less";
 
+// 声明
 $('.dialog-body').html(`
   <h1>严正声明</h1>
   <p>“甜乐主益”为甜乐主益股份有限公司（以下简称“我司”），旗下的一个以经营新鲜冰淇淋·茶饮为主的全国饮品连锁品牌。且我司是“甜乐主益”等相关商标的专有权利人。
@@ -17,6 +18,7 @@ $('.dialog-body').html(`
   特此声明！</p>
 `)
 
+// 轮播图
 $("#slider").owlCarousel({
   items: 1, 
   loop:true, 
@@ -25,3 +27,22 @@ $("#slider").owlCarousel({
   autoPlayTimeout: 5000,
   autoplayHoverPause: true
 });
+
+// 数据
+import { hot } from '@/mock/index.js'
+$('.index-card-row').html(
+  hot.map(item => 
+    `<div class="index-card-col" data-id=${item.id}>
+      <div class="index-card-col-content">
+        <img src="${item.url}" alt="">
+        <div class="name">${item.name}</div>
+        <p>
+          ${item.introduce.substring(0, 20)}${item.introduce.length > 20 ? '...' : ''}
+        </p>
+      </div>
+    </div>`
+  )
+)
+$('.index-card-col').on('click', function() {
+  $(location).attr('href', `/product/detail.html?id=${$(this).data('id')}`);
+})
