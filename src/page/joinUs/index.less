@@ -1,82 +1,220 @@
 #container {
+  // width: 100%;
+  // overflow-x: hidden;
   z-index: 9999;
-  background-image: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);
+}
+.main {
+  margin-bottom: 100px;
+  width: 100%;
+}
+.catalogue_item {
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 120px 0 0 0;
+}
+.catalogue_title h2 {
+  font-size: 32px;
+  text-align: center;
+  color: #1a1a1a;
+  font-weight: bold;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+.catalogue_title span {
+  font-family: inherit;
+  text-align: center;
+  margin-bottom: 80px;
+  font-size: 20px;
+  font-weight: 300;
+  color: #bbbbbb;
+  cursor: pointer;
+  display: block;
+}
+.catalogue_title {
+  width: 1200px;
+  // background-color:blanchedalmond;
+  margin: 0 auto;
+}
+// first
+.top {
+  width: 100%;
+  background-image: url(../../assets/img/breadcrumb_bg_01.jpg);
+  height: 600px;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.top div {
+  width: 40%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1a1a1a;
+}
+.top h1 {
+  font-weight: 700;
+  font-family: "Oswald", sans-serif;
+  color: #fff !important;
+  font-size: 54px;
+  display: block;
+}
+.top span {
+  color: burlywood;
+  display: block;
+}
+//first
+
+//加盟流程css
+.process,
+.condition {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.content {
-  margin: 100px auto;
-  padding: 20px;
-  width: 60%;
-  color: white;
-  background: #222;
-
-  .tabs {
-    display: flex;
-    justify-content: center;
-    > div {
-      margin: 0 10px;
-      cursor: pointer;
-    }
-  }
-  .tabs-content {
-    display: none;
-  }
-  .tabs-0 {
-    display: block;
-    p {
-      margin: 20px 0;
-    }
-  }
-  .tabs-1 {
-    padding: 20px 0;
-    &-content {
-      display: flex;
-      flex-wrap: wrap;
-      > div {
-        margin: 10px;
-        width: 22%;
-        text-align: center;
-      }
-      .num {
-        color: #31c8bb;
-        font-size: 28px;
-        font-weight: bold;
-      }
-      .title {
-        color: #d4d4d4;
-        font-size: 18px;
-        margin: 20px 0;
-      }
-      .text {
-        text-align: left;
-        line-height: 20px;
-        color: #9d9d9d;
-        font-size: 14px;
-      }
-    }
-  }
-  .tabs-2 {
-    img {
-      width: 100%;
-    }
-  }
+.process li {
+  height: inherit;
+  width: 120px;
+  text-align: center;
+  display: list-item;
+  list-style-type: none;
 }
 
-.tabs-active {
-  padding-bottom: 4px;
-  border-bottom: 3px solid #afd918;
-  color: #afd918;
+.second_imgBox {
+  transition: all 1s;
+  position: relative;
 }
+
+.second_imgBox:hover {
+  transform: scale(0.8);
+}
+
+.step_img {
+  width: auto;
+  padding-bottom: 43px;
+}
+
+.process li p {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 28px;
+}
+// end
+
+//优势
+.advantage {
+  width: 1400px;
+  overflow: hidden;
+  padding: 0;
+  margin: 80px 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  // background-color: wheat;
+  margin: 0 auto;
+}
+.advantage li {
+  display: block;
+  width: 400px;
+  height: 100px;
+  cursor: pointer;
+  padding: 50px;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 10px;
+  box-shadow: 0px 0px 0px 0px grey;
+  transition: transform 0.3s linear 0s;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+.advantage li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 5px 5px 0px rgb(211, 211, 211);
+}
+.advantage_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.advantage_img img {
+  width: 57px;
+  height: 57px;
+}
+.advantage_titile {
+  margin-left: 10px;
+}
+.advantage_titile h2 {
+  padding: 0;
+  font-size: 26px;
+  font-weight: bold;
+  color: #1a1a1a;
+  padding-bottom: 10px;
+}
+.advantage_titile_p {
+  display: block;
+  color: #b6b6b6;
+  font-size: 18px;
+}
+// end
+
+// 政策
+.condition {
+  width: 100%;
+  min-height: 600px;
+  background-image: url(../../assets/img/add-cop.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.conditionBox {
+  width: 1400px;
+  height: 500px;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: start;
+}
+.condition_img {
+  width: 50%px;
+  height: 100%;
+}
+.condition_context {
+  width: 50%;
+  height: 100%;
+  padding: 50px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.condition_item {
+  width: 80%;
+  height: 50px;
+  line-height: 50px;
+  background-color: aliceblue;
+  border-radius: 20px;
+  color: #1a1a1a;
+  font-weight: bold;
+  padding-left: 20px;
+  transition: all 1s;
+  position: relative;
+}
+.condition_item:hover {
+  transform: scale(1.2);
+}
+// end
 
 .bg-bubbles {
-  position: absolute;
-  // 使气泡背景充满整个屏幕；
+  box-sizing: border-box;
+  min-height: 100%;
+  padding-bottom: 100px;
+  position: fixed;
   top: 0;
-  left: 0;
+  bottom: 0;
   width: 100%;
-  height: 100%;
-  // 如果元素内容超出给定的宽度和高度，overflow 属性可以确定是否显示滚动条等行为；
-  overflow: hidden;
   li {
     z-index: 9999;
     position: absolute;
@@ -85,7 +223,8 @@
     // 默认的气泡大小；
     width: 40px;
     height: 40px;
-    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    background-color: rgba(138, 32, 32, 0.15);
     list-style: none;
     // 使用自定义动画使气泡渐现、上升和翻滚；
     animation: square 15s infinite;
@@ -110,7 +249,7 @@
       width: 60px;
       height: 60px;
       animation-duration: 8s;
-      background-color: rgba(255, 255, 255, 0.3);
+      background-color: rgba(177, 108, 108, 0.3);
     }
     &:nth-child(5) {
       left: 70%;
@@ -120,7 +259,7 @@
       width: 120px;
       height: 120px;
       animation-delay: 3s;
-      background-color: rgba(255, 255, 255, 0.2);
+      background-color: rgba(199, 118, 118, 0.2);
     }
     &:nth-child(7) {
       left: 32%;
@@ -141,7 +280,7 @@
       height: 10px;
       animation-delay: 2s;
       animation-duration: 12s;
-      background-color: rgba(255, 255, 255, 0.3);
+      background-color: rgba(202, 137, 137, 0.3);
     }
     &:nth-child(10) {
       left: 85%;
@@ -171,26 +310,115 @@
   }
 }
 
-
-
 @media screen and (max-width: 800px) {
-  .content {
-    width: 80%;
+  .top {
+    display: none;
   }
-  .tabs-1 {
-    &-content {
-      > div {
-        width: 42% !important;
-      }
-    }
-    .num {
-      font-size: 20px !important;
-    }
-    .title {
-      font-size: 14px !important;
-    }
-    .text {
-      font-size: 12px !important;
-    }
+  .bg-bubbles {
+    // display: none;
+  }
+
+  .catalogue_title h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .catalogue_title span {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  .catalogue_title {
+    width: 100%;
+  }
+  .catalogue_item {
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin: 10px 0 0 0;
+  }
+  .process,
+  .condition {
+    flex-flow: column;
+    margin-top: 30px;
+  }
+
+  .process li {
+    height: auto;
+    width: 100%;
+    margin: 10px 0 10px 0;
+  }
+
+  .second_imgBox {
+    transition: all 1s;
+    position: relative;
+  }
+  .second_imgBox img {
+    width: 100px;
+    height: 100px;
+  }
+  .step_img img {
+    transform: rotate(90deg);
+    padding: 0;
+  }
+  .step_img {
+    margin: 20px 0 20px 0;
+    padding: 0;
+  }
+
+  .process li p {
+    font-size: 12px;
+    margin-top: 10px;
+  }
+
+  .condition {
+    min-height: 400px;
+  }
+  .conditionBox {
+    width: 90%;
+    height: 300px;
+  }
+  .condition_img {
+    display: none;
+  }
+  .condition_context {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    justify-content: space-around;
+  }
+  .condition_item {
+    height: 30px;
+    line-height: 30px;
+    border-radius: 12px;
+    padding-left: 15px;
+    font-size: 10px;
+  }
+
+  .advantage {
+    width: 100%;
+    margin: 50px 0 0 0;
+  }
+  .advantage li {
+    width: 80%;
+    height: auto;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  .advantage_img img {
+    width: 30px;
+    height: 30px;
+  }
+  .advantage_titile {
+    margin-left: 10px;
+  }
+  .advantage_titile h2 {
+    padding: 0;
+    font-size: 12px;
+    padding-bottom: 5px;
+  }
+  .advantage_titile_p {
+    font-size: 10px;
+  }
+  .main {
+    margin-bottom: 20px;
   }
 }

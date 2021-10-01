@@ -127,7 +127,7 @@ module.exports = {
       verbose: true,
     }),
     new OptimizeCssAssetsPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
